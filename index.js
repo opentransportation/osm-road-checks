@@ -1,9 +1,8 @@
-import path from 'path'
-import mkdirp from 'mkdirp'
-import tileReduce from 'tile-reduce'
-import write from 'write-json-file'
-import { featureCollection } from '@turf/helpers'
-import globalMercator from 'global-mercator'
+const path = require('path')
+const mkdirp = require('mkdirp')
+const tileReduce = require('tile-reduce')
+// const write = require('write-json-file')
+// const { featureCollection } = require('@turf/helpers')
 
 /**
  * OSMLinter using OSM QA Tiles
@@ -16,7 +15,7 @@ import globalMercator from 'global-mercator'
  * @param {boolean} [options.debug=false] Enables DEBUG mode
  * @returns {EventEmitter} tile-reduce EventEmitter
  */
-export default function (mbtiles, options) {
+module.exports = function (mbtiles, options) {
   options = options || {}
   const output = options.output || 'osmlinter'
   const debug = options.debug
@@ -35,18 +34,21 @@ export default function (mbtiles, options) {
     }
   })
   const ee = tileReduce(options)
-  const highways = []
+  let total = 0
+  // const highways = []
 
   // Execute the following after each tile is completed
   ee.on('reduce', (result, tile) => {
-    result.forEach(highway => highways.push(highway))
+    total += result
+    // result.forEach(highway => highways.push(highway))
   })
   ee.on('end', () => {
-    write.sync(
-      path.join(output, path.parse(mbtiles).name + '.geojson'),
-      featureCollection(highways)
-    )
-    console.log('done')
+    // write.sync(
+    //   path.join(output, path.parse(mbtiles).name + '.geojson'),
+    //   featureCollection(highways)
+    // )
+    console.log('total:', total)
+    console.log('done!')
   })
   return ee
 }

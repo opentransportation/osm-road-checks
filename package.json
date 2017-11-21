@@ -13,7 +13,7 @@
     "test": "tape test.js"
   },
   "bin": {
-    "cycling-stress-data": "bin/osmlinter.js"
+    "osmlinter": "bin/osmlinter.js"
   },
   "license": "MIT",
   "devDependencies": {

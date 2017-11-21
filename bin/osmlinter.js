@@ -2,19 +2,19 @@
 
 const fs = require('fs')
 const meow = require('meow')
-const cyclingStressData = require('../')
+const osmlinter = require('../')
 const cli = meow(`
   Usage:
-    $ cycling-stress-data <qa-tiles>
+    $ osmlinter <qa-tiles>
   Options:
-    --output    [cycling-stress-data] Filepath to store outputs
+    --output    [osmlinter] Filepath to store outputs
     --bbox      Excludes QATiles by BBox
     --tiles     Excludes QATiles by an Array of Tiles
     --debug     [false] Enables DEBUG mode
   Examples:
-    $ cycling-stress-data latest.planet.mbtiles
-    $ cycling-stress-data latest.planet.mbtiles --tiles [[654,1584,12]]
-    $ cycling-stress-data latest.planet.mbtiles --bbox [-122.5,37.6,-122.1,37.9]
+    $ osmlinter latest.planet.mbtiles
+    $ osmlinter latest.planet.mbtiles --tiles [[654,1584,12]]
+    $ osmlinter latest.planet.mbtiles --bbox [-122.5,37.6,-122.1,37.9]
 `, {
   boolean: ['debug']
 })
@@ -39,4 +39,4 @@ if (options.tiles) {
   if (!Array.isArray(options.tiles[0]) || options.tiles[0].length !== 3) throw new Error('invalid tiles')
 }
 
-cyclingStressData(mbtiles, options)
+osmlinter(mbtiles, options)
