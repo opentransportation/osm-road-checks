@@ -1,0 +1,36 @@
+{
+  "name": "osmlinter-qa-tiles",
+  "version": "0.1.0",
+  "description": "OSM Linter using QA-Tiles",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "bin",
+    "lib"
+  ],
+  "scripts": {
+    "pretest": "standard",
+    "test": "tape test.js"
+  },
+  "bin": {
+    "cycling-stress-data": "bin/osmlinter.js"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "*",
+    "tape": "*"
+  },
+  "dependencies": {
+    "@turf/bbox": "*",
+    "@turf/bbox-polygon": "*",
+    "@turf/helpers": "*",
+    "global-mercator": "*",
+    "meow": "*",
+    "mkdirp": "*",
+    "tile-reduce": "*",
+    "write-json-file": "*"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}
