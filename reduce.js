@@ -1,7 +1,7 @@
 const path = require('path')
 const tileReduce = require('@mapbox/tile-reduce')
 const { featureEach } = require('@turf/meta')
-const { tileToGeoJSON } = require('./src/utils')
+const tileToGeoJSON = require('./utils/tile-to-geojson')
 
 /**
  * OSMLinter using OSM QA Tiles

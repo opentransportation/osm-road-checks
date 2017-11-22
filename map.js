@@ -1,6 +1,6 @@
 const { featureEach } = require('@turf/meta')
 const { featureCollection } = require('@turf/helpers')
-const vectorTileToGeoJSON = require('./src/vector-tile-to-geojson')
+const vectorTileToGeoJSON = require('./utils/vector-tile-to-geojson')
 
 // QA Tile reducer script
 module.exports = (sources, tile, writeData, done) => {
