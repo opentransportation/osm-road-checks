@@ -31,4 +31,4 @@ http://www.openstreetmap.org/way/377069055
 
 - 2000+ Node Highways
 - Poor Geometry Highway
-
+- Untagged highways
