@@ -1,20 +1,19 @@
 const { featureEach } = require('@turf/meta')
 const { featureCollection } = require('@turf/helpers')
-const vectorTileToGeoJSON = require('./src/vector-tile-to-geojson')
+const vectorTileFilter = require('../src/vector-tile-filter')
 
 // QA Tile reducer script
 module.exports = (sources, tile, writeData, done) => {
-  // Convert & Filter Vector Tile to GeoJSON
+  // Filter Vector Tile
   const vectorTile = sources.qatiles.osm
-  const geojson = vectorTileToGeoJSON(tile, vectorTile)
+  const highways = vectorTileFilter(tile, vectorTile, {
+    highway: ['primary', 'secondary', 'trunk']
+  })
 
   // Save Results as GeoJSON FeatureCollection
   const results = featureCollection([])
-
-  // Iterate over each GeoJSON Feature
-  featureEach(geojson, feature => {
-    // Perform analysis
-    results.features.push(feature)
+  featureEach(highways, highway => {
+    results.features.push(highway)
   })
 
   // Push GeoJSON FeatureCollection results to reduce.js

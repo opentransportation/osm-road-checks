@@ -22,3 +22,13 @@ $ npm install
 ```bash
 $ ./bin/osmlinter.js indonesia.mbtiles > results.geojson
 ```
+
+## QA Examples
+
+- Bridge Road classification different from before & start highway
+
+http://www.openstreetmap.org/way/377069055
+
+- 2000+ Node Highways
+- Poor Geometry Highway
+

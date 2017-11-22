@@ -26,6 +26,7 @@ module.exports = function (mbtiles, options) {
   const ee = tileReduce(options)
 
   // Execute the following after each tile is completed
+  let total = 0
   ee.on('reduce', (results, tile) => {
     // pipe out streamed z12 tile
     process.stdout.write(JSON.stringify(tileToGeoJSON(tile)) + ',\n')
@@ -34,12 +35,13 @@ module.exports = function (mbtiles, options) {
     featureEach(results, feature => {
       // pipe out streamed data to GeoJSON JSON Line
       process.stdout.write(JSON.stringify(feature) + ',\n')
+      total++
     })
   })
   // Execute when tile reduce is completed
   ee.on('end', () => {
     // Any end processing can be added here
-    process.stderr.write('done!')
+    process.stderr.write(`${total} GeoJSON Features saved\n`)
   })
   return ee
 }
