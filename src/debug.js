@@ -5,13 +5,18 @@
 // const bboxPolygon = require('@turf/bbox-polygon')
 // const { featureCollection } = require('@turf/helpers')
 
-// Create folder if does not exist
+// Globals
+// const debug = global.mapOptions && global.mapOptions.debug
+// const output = global.mapOptions && global.mapOptions.output
+
+// // Create folder if does not exist
 // if (!fs.existsSync(output)) mkdirp.sync(output)
 
 // // Output Features for Testing purposes
 // if (debug) {
 //   const debugPath = path.join(output, quadkey) + path.sep
 
+  // const quadkey = globalMercator.googleToQuadkey(tile)
 //   // GeoJSON
 //   write.sync(debugPath + 'highways.geojson', featureCollection(highways))
 //   write.sync(debugPath + 'tile.geojson', bboxPolygon(globalMercator.googleToBBox(tile)))
@@ -24,5 +29,5 @@
 //     highways: highways.length
 //   })
 // }
-// Output Results
+// // Output Results
 // if (highways.length) fs.writeFileSync(path.join(output, quadkey + '.geojson'), JSON.stringify(featureCollection(highways), null, 4))

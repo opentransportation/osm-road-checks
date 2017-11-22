@@ -2,11 +2,12 @@
   "name": "osmlinter-qa-tiles",
   "version": "0.1.0",
   "description": "OSM Linter using QA-Tiles",
-  "main": "index.js",
+  "main": "reduce",
   "files": [
-    "index.js",
+    "map.js",
+    "reduce.js",
     "bin",
-    "lib"
+    "src"
   ],
   "scripts": {
     "pretest": "standard",
@@ -17,18 +18,18 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/geojson": "*",
     "standard": "*",
     "tape": "*"
   },
   "dependencies": {
+    "@mapbox/tile-reduce": "*",
     "@turf/bbox": "*",
     "@turf/bbox-polygon": "*",
     "@turf/helpers": "*",
     "global-mercator": "*",
     "meow": "*",
-    "mkdirp": "*",
-    "tile-reduce": "*",
-    "write-json-file": "*"
+    "osmlinter": "*"
   },
   "engines": {
     "node": ">=6.0.0"

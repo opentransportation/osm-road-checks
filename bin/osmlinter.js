@@ -2,7 +2,8 @@
 
 const fs = require('fs')
 const meow = require('meow')
-const osmlinter = require('../')
+const osmlinterReduce = require('../')
+
 const cli = meow(`
   Usage:
     $ osmlinter <qa-tiles>
@@ -39,4 +40,4 @@ if (options.tiles) {
   if (!Array.isArray(options.tiles[0]) || options.tiles[0].length !== 3) throw new Error('invalid tiles')
 }
 
-osmlinter(mbtiles, options)
+osmlinterReduce(mbtiles, options)
