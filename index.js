@@ -37,9 +37,12 @@ module.exports = function (mbtiles, options) {
     mapOptions: options.mapOptions || {},
     maxWorkers: options.maxWorkers
   })
+  // OSMLinter Global variables
+  global.osmlinter = {
+    total: 0
+  }
 
   // Run Tile Reduce Operations
-  global.osmlinter = {}
   const ee = tileReduce(options)
   ee.on('reduce', reduce)
   ee.on('end', end)

@@ -21,7 +21,6 @@ module.exports = (results, tile) => {
 
     // Count the total amount of features processed
     // Total outputs will happen in 'end.js'
-    if (!global.osmlinter.total) global.osmlinter.total = 1
-    else global.osmlinter.total += 1
+    global.osmlinter.total += 1
   })
 }
