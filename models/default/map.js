@@ -1,8 +1,8 @@
 const { featureEach } = require('@turf/meta')
 const { featureCollection } = require('@turf/helpers')
-const vectorTileToGeoJSON = require('./utils/vector-tile-to-geojson')
+const vectorTileToGeoJSON = require('../../utils/vector-tile-to-geojson')
 
-// QA Tile reducer script
+// Apply this operation in parallel over processes to each individual QA Tile
 module.exports = (sources, tile, writeData, done) => {
   // Convert & Filter Vector Tile to GeoJSON
   const vectorTile = sources.qatiles.osm

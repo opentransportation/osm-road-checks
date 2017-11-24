@@ -2,12 +2,12 @@
   "name": "osmlinter-qa-tiles",
   "version": "0.1.0",
   "description": "OSM Linter using QA-Tiles",
-  "main": "reduce",
+  "main": "index",
   "files": [
-    "map.js",
-    "reduce.js",
+    "index.js",
     "bin",
-    "src"
+    "models",
+    "utils"
   ],
   "scripts": {
     "pretest": "standard",

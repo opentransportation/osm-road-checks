@@ -19,16 +19,15 @@ $ npm install
 
 ## Start Process
 
+The process will pipe out GeoJSON Features line by line which allows you to stream the data to a file.
+
 ```bash
-$ ./bin/osmlinter.js indonesia.mbtiles > results.geojson
+$ ./bin/osmlinter.js indonesia.mbtiles --tiles [[3258,2116,12]] > results.geojson
 ```
 
-## QA Examples
+## Models (To-Do)
 
-- Bridge Road classification different from before & start highway
-
-http://www.openstreetmap.org/way/377069055
-
+- Bridge Road classification different from before & start highway (http://www.openstreetmap.org/way/377069055)
 - 2000+ Node Highways
 - Poor Geometry Highway
 - Untagged highways
