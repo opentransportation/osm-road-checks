@@ -7,12 +7,10 @@ module.exports = (sources, tile, writeData, done) => {
     highway: true
   })
 
-  // Save Results as GeoJSON FeatureCollection
   const results = featureCollection([])
   featureEach(highways, highway => {
     results.features.push(highway)
   })
 
-  // Push GeoJSON FeatureCollection results to reduce.js
   done(null, results)
 }

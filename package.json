@@ -28,8 +28,6 @@
     "@turf/bbox-polygon": "*",
     "@turf/helpers": "*",
     "global-mercator": "*",
-    "leveldown": "*",
-    "levelup": "*",
     "meow": "*",
     "osmlinter": "*"
   },

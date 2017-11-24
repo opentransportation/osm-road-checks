@@ -13,7 +13,6 @@ const tileReduce = require('@mapbox/tile-reduce')
  * @param {string} [options.map='models/default/map.js'] map script filepath
  * @param {string} [options.reduce='models/default/reduce.js'] reduce script filepath
  * @param {string} [options.end='models/default/end.js'] end script filepath
- * @param {string} [options.start='models/default/start.js'] start script filepath
  * @param {Object} [options.mapOptions={}] Passes through arbitrary options to workers. Options are made available to map scripts as global.mapOptions
  * @param {number} [options.maxWorkers] By default, TileReduce creates one worker process per CPU. maxWorkers may be used to limit the number of workers created.
  * @returns {EventEmitter} tile-reduce EventEmitter
@@ -28,13 +27,17 @@ module.exports = function (mbtiles, options) {
   let map = options.map || path.join(__dirname, 'models', model || 'default', 'map.js')
   let reduce = options.reduce || path.join(__dirname, 'models', model || 'default', 'reduce.js')
   let end = options.end || path.join(__dirname, 'models', model || 'default', 'end.js')
-  let start = options.start || path.join(__dirname, 'models', model || 'default', 'start.js')
 
   // Validation
   if (!fs.existsSync(map)) throw new Error('map.js filepath does not exist')
   if (!fs.existsSync(reduce)) reduce = path.join(__dirname, 'models', 'default', 'reduce.js')
   if (!fs.existsSync(end)) end = path.join(__dirname, 'models', 'default', 'end.js')
-  if (!fs.existsSync(start)) start = path.join(__dirname, 'models', 'default', 'start.js')
+
+  // OSMLinter Global variables
+  global.osmlinter = {
+    total: 0,
+    db: null
+  }
 
   // Load Tile Reduce operations
   reduce = require(reduce)
@@ -48,14 +51,9 @@ module.exports = function (mbtiles, options) {
     mapOptions: options.mapOptions || {},
     maxWorkers: options.maxWorkers
   })
-  // OSMLinter Global variables
-  global.osmlinter = {
-    total: 0
-  }
 
   // Run Tile Reduce Operations
   const ee = tileReduce(options)
-  ee.on('start', start)
   ee.on('reduce', reduce)
   ee.on('end', end)
   return ee
