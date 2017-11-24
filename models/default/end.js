@@ -1,4 +1,9 @@
-// Execute the following when reduce operation is completed
+/**
+ * End
+ *
+ * Fired when all queued tiles have been processed.
+ * Use this event to output final reduce results.
+ */
 module.exports = () => {
-  process.stderr.write(`GeoJSON Features saved\n`)
+  process.stderr.write(`${global.osmlinter.total} GeoJSON Features saved\n`)
 }

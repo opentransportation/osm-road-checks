@@ -33,10 +33,13 @@ module.exports = function (mbtiles, options) {
   Object.assign(options, {
     zoom: 12,
     map,
-    sources: [{name: 'qatiles', mbtiles, raw: true}]
+    sources: [{name: 'qatiles', mbtiles, raw: true}],
+    mapOptions: options.mapOptions || {},
+    maxWorkers: options.maxWorkers
   })
 
   // Run Tile Reduce Operations
+  global.osmlinter = {}
   const ee = tileReduce(options)
   ee.on('reduce', reduce)
   ee.on('end', end)
