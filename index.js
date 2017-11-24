@@ -36,7 +36,7 @@ module.exports = function (mbtiles, options) {
   // OSMLinter Global variables
   global.osmlinter = {
     total: 0,
-    db: null
+    results: {}
   }
 
   // Load Tile Reduce operations

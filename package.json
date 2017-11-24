@@ -27,6 +27,7 @@
     "@turf/bbox": "*",
     "@turf/bbox-polygon": "*",
     "@turf/helpers": "*",
+    "@turf/meta": "*",
     "global-mercator": "*",
     "meow": "*",
     "osmlinter": "*"
