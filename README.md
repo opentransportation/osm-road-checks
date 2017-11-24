@@ -29,6 +29,17 @@ There are a few default models that you can pick from, for instace `--model high
 $ ./bin/osmlinter.js indonesia.mbtiles --tiles [[3258,2116,12]] --model highways > results.geojson
 ```
 
+## Customize Model
+
+You can modify each operation by providing your own customized script by providing filepath to your script. For example if you want to modify the `reduce.js` script, you would simply add `--reduce myscript/reduce.js` to the CLI.
+
+There are 4 main scripts you can modify:
+
+- `--map`: Fired just before a tile is sent to a worker.
+- `--reduce`: Fired when a tile has finished processing.
+- `--end`: Fired when all queued tiles have been processed.
+- `--start`: Fired before the queued tiles have been processed.
+
 ## CLI
 
 ```
