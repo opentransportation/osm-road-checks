@@ -62,9 +62,11 @@ There are 4 main scripts you can modify:
     $ osmlinter indonesia.mbtiles --bbox [106.3,-6.0,106.4,-5.9] > results.geojson
 ```
 
-## Models (Completed)
+## Models
 
 ### 2000+ Node Highways
+
+To find highways with greater than 1500+ nodes since the OSM maximum limit in OSM is 2000 nodes.
 
 ```
 $ ./bin/osmlinter.js indonesia.mbtiles --model 2000-node-highways > results.geojson
