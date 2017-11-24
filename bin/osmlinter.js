@@ -12,6 +12,7 @@ const cli = meow(`
     --bbox      Excludes QATiles by BBox
     --tiles     Excludes QATiles by an Array of Tiles
     --debug     [false] Enables DEBUG mode
+    --map       [map.js] Map script filepath
   Examples:
     $ osmlinter latest.planet.mbtiles
     $ osmlinter latest.planet.mbtiles --tiles [[654,1584,12]]
@@ -38,6 +39,10 @@ if (options.bbox) {
 if (options.tiles) {
   options.tiles = JSON.parse(options.tiles)
   if (!Array.isArray(options.tiles[0]) || options.tiles[0].length !== 3) throw new Error('invalid tiles')
+}
+
+if (options.map) {
+  if (!fs.existsSync(options.map)) throw new Error('map script filepath does not exist')
 }
 
 osmlinterReduce(mbtiles, options)

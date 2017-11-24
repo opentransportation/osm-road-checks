@@ -1,6 +1,6 @@
 const { featureEach } = require('@turf/meta')
 const { featureCollection } = require('@turf/helpers')
-const vectorTileFilter = require('../src/vector-tile-filter')
+const vectorTileFilter = require('../utils/vector-tile-filter')
 
 // QA Tile reducer script
 module.exports = (sources, tile, writeData, done) => {

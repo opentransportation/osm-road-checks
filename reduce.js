@@ -1,3 +1,4 @@
+const fs = require('fs')
 const path = require('path')
 const tileReduce = require('@mapbox/tile-reduce')
 const { featureEach } = require('@turf/meta')
@@ -12,15 +13,20 @@ const tileToGeoJSON = require('./utils/tile-to-geojson')
  * @param {Tile[]} [options.tiles] Filter by Tiles
  * @param {string} [options.output="osmlinter"] directory to store outputs results
  * @param {boolean} [options.debug=false] Enables DEBUG mode
+ * @param {string} [options.map='map.js'] Map script filepath
  * @returns {EventEmitter} tile-reduce EventEmitter
  */
 module.exports = function (mbtiles, options) {
   options = options || {}
+  const map = options.map || path.join(__dirname, 'map.js')
+
+  // Validation
+  if (!fs.existsSync(map)) throw new Error('map script filepath does not exist')
 
   // Tile Reduce options
   Object.assign(options, {
     zoom: 12,
-    map: path.join(__dirname, 'map.js'),
+    map,
     sources: [{name: 'qatiles', mbtiles, raw: true}]
   })
   const ee = tileReduce(options)
