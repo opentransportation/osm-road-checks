@@ -108,4 +108,7 @@ Processing tile coords from "qatiles" source.
 
 - Bridge Road classification different from before & start highway (http://www.openstreetmap.org/way/377069055)
 - Poor Geometry Highway
-- Untagged highways
+- Untagged Highways
+- Untagged Buildings
+- Duplicate Buildings (https://github.com/MikeTho16/JOSM-Scripts/blob/master/SelectDuplicateBuilding.js)
+- Non-Orthogonal Building (https://github.com/MikeTho16/JOSM-Scripts/blob/master/SelectNonOrthogonalBuilding.js)
