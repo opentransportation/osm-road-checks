@@ -62,9 +62,48 @@ There are 4 main scripts you can modify:
     $ osmlinter indonesia.mbtiles --bbox [106.3,-6.0,106.4,-5.9] > results.geojson
 ```
 
+## Models (Completed)
+
+### 2000+ Node Highways
+
+```
+$ ./bin/osmlinter.js indonesia.mbtiles --model 2000-node-highways > results.geojson
+Starting up 4 workers... Job started.
+Processing tile coords from "qatiles" source.
+23623 tiles processed in 53s.
+786102 GeoJSON Features scanned
+@id 37947193 => 1839 Nodes
+@id 67225347 => 1755 Nodes
+@id 149985946 => 1625 Nodes
+@id 158317029 => 1668 Nodes
+@id 170307501 => 1589 Nodes
+@id 174085512 => 1856 Nodes
+@id 175856372 => 1993 Nodes
+@id 181657761 => 1556 Nodes
+@id 185735318 => 1775 Nodes
+@id 197840211 => 1770 Nodes
+@id 204215338 => 1677 Nodes
+@id 243250345 => 2004 Nodes
+@id 284136037 => 1882 Nodes
+@id 289507655 => 1859 Nodes
+@id 323124169 => 1919 Nodes
+@id 354013132 => 1722 Nodes
+@id 359869305 => 1796 Nodes
+@id 360088015 => 1568 Nodes
+@id 366065991 => 1694 Nodes
+@id 384335286 => 1571 Nodes
+@id 384543779 => 1638 Nodes
+@id 385836193 => 1598 Nodes
+@id 440237215 => 1799 Nodes
+@id 444883124 => 1990 Nodes
+@id 458350011 => 1548 Nodes
+@id 471337757 => 1595 Nodes
+@id 477695390 => 1640 Nodes
+@id 536910559 => 1568 Nodes
+```
+
 ## Models (To-Do)
 
 - Bridge Road classification different from before & start highway (http://www.openstreetmap.org/way/377069055)
-- 2000+ Node Highways
 - Poor Geometry Highway
 - Untagged highways

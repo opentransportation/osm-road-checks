@@ -5,8 +5,10 @@ module.exports = () => {
 
   Object.keys(results).forEach(id => {
     const nodes = results[id]
-    if (nodes > 1000) {
-      process.stderr.write(`@id ${id} => ${nodes} Nodes\n`)
+    if (nodes > 1500) {
+      const msg = `@id ${id} => ${nodes} Nodes\n`
+      process.stderr.write(msg)
+      process.stdout.write(msg)
     }
   })
 }
