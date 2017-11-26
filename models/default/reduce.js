@@ -13,7 +13,7 @@ module.exports = (results, tile) => {
   // Iterate over each GeoJSON Feature in results
   featureEach(results, feature => {
     // pipe out streamed data to GeoJSON JSON Line
-    process.stdout.write(JSON.stringify(feature) + ',\n')
+    process.stdout.write(JSON.stringify(feature) + '\n')
 
     // Count the total amount of features processed
     // Total outputs will happen in 'end.js'
