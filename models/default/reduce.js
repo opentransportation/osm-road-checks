@@ -1,5 +1,4 @@
 const { featureEach } = require('@turf/meta')
-const tileToGeoJSON = require('../../utils/tile-to-geojson')
 
 /**
  * Reduce
@@ -11,9 +10,6 @@ const tileToGeoJSON = require('../../utils/tile-to-geojson')
  * Receives data returned in the map function's done callback (if any), and the tile.
  */
 module.exports = (results, tile) => {
-  // pipe out streamed z12 tile
-  process.stdout.write(JSON.stringify(tileToGeoJSON(tile)) + ',\n')
-
   // Iterate over each GeoJSON Feature in results
   featureEach(results, feature => {
     // pipe out streamed data to GeoJSON JSON Line

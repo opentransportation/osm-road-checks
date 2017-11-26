@@ -15,6 +15,7 @@ const geometryTypes = {
  * @param {Object} [options={}] Optional Parameters
  * @param {string} [options.geometry] Filter by Geometry Type
  * @param {Array<string>|boolean} [options.highway] Filter by Highway OSM Property Values
+ * @param {Array<string>|boolean} [options.building] Filter by Building OSM Property Values
  * @returns {FeatureCollection<any>} filtered Highway LineString FeatureCollection
  * @example
  * const highways = vectorTileToGeoJSON(tile, vectorTile, {
@@ -27,6 +28,7 @@ module.exports = function vectorTileToGeoJSON (tile, vectorTile, options) {
   // Optional Parameters
   options = options || {}
   const highway = options.highway
+  const building = options.building
   const geometry = (options.geometry || '').toLocaleLowerCase()
 
   // Input Validation
@@ -45,6 +47,10 @@ module.exports = function vectorTileToGeoJSON (tile, vectorTile, options) {
     // Filter by highway Tags
     if (highway === true && vectorFeature.properties.highway === undefined) continue
     if (highway && Array.isArray(highway) && highway.indexOf(vectorFeature.properties.highway) === -1) continue
+
+    // Filter by highway Tags
+    if (building === true && vectorFeature.properties.building === undefined) continue
+    if (building && Array.isArray(building) && building.indexOf(vectorFeature.properties.building) === -1) continue
 
     // Convert Vector Tile to an Array of GeoJSON Features
     const feature = vectorFeature.toGeoJSON(tile[0], tile[1], tile[2])
