@@ -26,7 +26,7 @@ The process will pipe out GeoJSON Features line by line which allows you to stre
 There are a few default models that you can pick from, for instace `--model highways` will pipe out all features containing a highway tag from the OSM QA Tiles.
 
 ```bash
-$ ./bin/osmlinter.js indonesia.mbtiles --tiles [[3258,2116,12]] --model highways > results.geojson
+$ ./bin/osmlinter.js indonesia.mbtiles --tiles [[3258,2116,12]] --model highways > results.json
 ```
 
 ## Customize Model
@@ -57,9 +57,9 @@ There are 4 main scripts you can modify:
     --mapOptions  Passes through arbitrary options to workers. Options are made available to map scripts as global.mapOptions
     --maxWorkers  By default, TileReduce creates one worker process per CPU. maxWorkers may be used to limit the number of workers created.
   Examples:
-    $ osmlinter indonesia.mbtiles --model highways > results.geojson
-    $ osmlinter indonesia.mbtiles --tiles [[3258,2116,12],[3259,2117,12]] > results.geojson
-    $ osmlinter indonesia.mbtiles --bbox [106.3,-6.0,106.4,-5.9] > results.geojson
+    $ osmlinter indonesia.mbtiles --model highways > results.json
+    $ osmlinter indonesia.mbtiles --tiles [[3258,2116,12],[3259,2117,12]] > results.json
+    $ osmlinter indonesia.mbtiles --bbox [106.3,-6.0,106.4,-5.9] > results.json
 ```
 
 ## Models
@@ -69,7 +69,7 @@ There are 4 main scripts you can modify:
 To find highways with greater than 1500+ nodes since the OSM maximum limit in OSM is 2000 nodes.
 
 ```
-$ ./bin/osmlinter.js indonesia.mbtiles --model 2000-node-highways > results.geojson
+$ ./bin/osmlinter.js indonesia.mbtiles --model 2000-node-highways > results.json
 Starting up 4 workers... Job started.
 Processing tile coords from "qatiles" source.
 23623 tiles processed in 53s.

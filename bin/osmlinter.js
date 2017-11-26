@@ -19,8 +19,8 @@ const cli = meow(`
     --mapOptions  Passes through arbitrary options to workers. Options are made available to map scripts as global.mapOptions
     --maxWorkers  By default, TileReduce creates one worker process per CPU. maxWorkers may be used to limit the number of workers created.
   Examples:
-    $ osmlinter indonesia.mbtiles --tiles [[3258,2116,12],[3259,2117,12]] > results.geojson
-    $ osmlinter indonesia.mbtiles --bbox [106.3,-6.0,106.4,-5.9] > results.geojson
+    $ osmlinter indonesia.mbtiles --tiles [[3258,2116,12],[3259,2117,12]] > results.json
+    $ osmlinter indonesia.mbtiles --bbox [106.3,-6.0,106.4,-5.9] > results.json
 `, {
   boolean: ['debug']
 })
