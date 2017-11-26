@@ -1,5 +1,5 @@
 const { featureEach } = require('@turf/meta')
-const totalNodes = require('../../utils/total-nodes')
+const { totalNodes } = require('osmlinter')
 
 module.exports = (results, tile) => {
   featureEach(results, feature => {
