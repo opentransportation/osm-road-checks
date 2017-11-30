@@ -44,6 +44,7 @@ module.exports = function (mbtiles, options) {
   }
 
   // Load Tile Reduce operations
+  start = require(start)
   reduce = require(reduce)
   end = require(end)
 
