@@ -1,5 +1,6 @@
 const { googleToQuadkey, googleToBBox } = require('global-mercator')
 const bboxPolygon = require('@turf/bbox-polygon').default
+const { totalNodes } = require('osmlinter')
 
 /**
  * Convert Tile To GeoJOSN Polygon
